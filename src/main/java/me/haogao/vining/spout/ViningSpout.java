@@ -8,7 +8,9 @@ import java.util.Map;
 
 public class ViningSpout extends ShellSpout implements IRichSpout {
     
-    public ViningSpout() {
+	private static final long serialVersionUID = 7060865252243357618L;
+
+	public ViningSpout() {
         super("python", "vining_spout.py");
     }
 
