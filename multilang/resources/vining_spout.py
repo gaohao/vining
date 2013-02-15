@@ -35,8 +35,10 @@ class ViningSpout(storm.Spout):
                 title = soupe.p.get_text()
                 vine_dict[title]=link
                 storm.emit([link])
-                
+            
         except StopIteration:
+            pass
+        except:
             pass
 ViningSpout().run()
 
