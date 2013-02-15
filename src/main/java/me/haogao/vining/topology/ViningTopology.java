@@ -35,8 +35,10 @@ public class ViningTopology {
             conf.setMaxTaskParallelism(3);
             LocalCluster cluster = new LocalCluster();
             cluster.submitTopology("vining", conf, builder.createTopology());
-            Thread.sleep(100000);
-            cluster.shutdown();
+            
+            //Thread.sleep(100000);
+            //cluster.killTopology("vining");
+            //cluster.shutdown();
         }  
 		logger.exit();
     }
