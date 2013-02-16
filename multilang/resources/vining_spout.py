@@ -36,6 +36,7 @@ class ViningSpout(storm.Spout):
                 vine_dict[title]=link
                 storm.emit([link])
             
+            time.sleep(3)
         except StopIteration:
             pass
         except:
