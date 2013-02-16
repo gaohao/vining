@@ -38,7 +38,6 @@ public class ViningCacheBolt extends BaseRichBolt{
 
 	@Override
 	public void execute(Tuple input) {
-		System.out.println(input.getValue(0));
 		String link = (String) input.getValue(0);
 		String key = "vine:link";
 		this.jedis.sadd(key, link);
