@@ -42,7 +42,7 @@ public class ViningCacheBolt extends BaseRichBolt{
 		String link = (String) input.getValue(0);
 		String key = "vine:link";
 		this.jedis.sadd(key, link);
-		logger.info(link);
+		//logger.info(link);
 	}
 	@Override
 	public void declareOutputFields(OutputFieldsDeclarer declarer) {
