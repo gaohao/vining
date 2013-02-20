@@ -3,8 +3,8 @@ package me.haogao.vining.topology;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import me.haogao.vining.bolt.ViningCacheBolt;
-import me.haogao.vining.spout.ViningSpout;
+import me.haogao.vining.bolt.*;
+import me.haogao.vining.spout.*;
 
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
@@ -18,15 +18,16 @@ public class ViningTopology {
 		Logger logger = LogManager.getLogger(ViningTopology.class.getName());
     	logger.entry();
     	
+    	
         TopologyBuilder builder = new TopologyBuilder();
         
-        builder.setSpout("spout", new ViningSpout(), 1);
+        builder.setSpout("spout", new ViningShellSpout(), 1);
         
         builder.setBolt("bolt", new ViningCacheBolt("localhost", 6379), 12)
                  .fieldsGrouping("spout", new Fields("link"));
 
         Config conf = new Config();
-        conf.setDebug(false);
+        conf.setDebug(true);
         
         if(args!=null && args.length > 0) {
             conf.setNumWorkers(3);
@@ -36,9 +37,9 @@ public class ViningTopology {
             LocalCluster cluster = new LocalCluster();
             cluster.submitTopology("vining", conf, builder.createTopology());
             
-            //Thread.sleep(100000);
-            //cluster.killTopology("vining");
-            //cluster.shutdown();
+            Thread.sleep(100000);
+            cluster.killTopology("vining");
+            cluster.shutdown();
         }  
 		logger.exit();
     }

@@ -1,12 +1,17 @@
 package me.haogao.vining.bolt;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
+import java.util.TimeZone;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
+
 
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
@@ -38,10 +43,29 @@ public class ViningCacheBolt extends BaseRichBolt{
 
 	@Override
 	public void execute(Tuple input) {
-		String link = (String) input.getValue(0);
-		String key = "vine:link";
-		this.jedis.sadd(key, link);
-		//logger.info(link);
+		String id = (String) input.getValue(0);
+		String text = (String) input.getValue(1);
+		String created_at = (String) input.getValue(2);
+		String link = (String) input.getValue(3);
+		
+		String ISO_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
+		SimpleDateFormat sdf = new SimpleDateFormat(ISO_FORMAT);
+		TimeZone utc = TimeZone.getTimeZone("UTC");
+		sdf.setTimeZone(utc);
+		try {
+			Date date = sdf.parse(created_at);
+			
+			//logger.info();
+			this.jedis.hset(id, "text", text);
+			this.jedis.hset(id, "created_at", created_at);
+			this.jedis.hset(id, "link", link);
+			
+			String key = "vine:link:realtime";
+			this.jedis.zadd(key, date.getTime(), id);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	@Override
 	public void declareOutputFields(OutputFieldsDeclarer declarer) {
