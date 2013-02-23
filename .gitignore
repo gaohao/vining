@@ -48,3 +48,4 @@ logs
 target
 redis/redis-cli
 redis/redis-server
+*.rdb
