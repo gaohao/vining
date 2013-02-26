@@ -17,7 +17,7 @@ source venv/bin/activate
 
 5. Run the topology  
 <pre>
-mvn -f pom.xml compile exec:java -Dexec.classpathScope=compile -Dexec.mainClass=me.haogao.vining.topology.ViningTopology    
+mvn -f pom.xml compile exec:java -Dexec.classpathScope=compile -Dexec.mainClass=me.haogao.vining.topology.ViningShellTopology    
 mvn -f pom.xml compile exec:java -Dexec.classpathScope=compile -Dexec.mainClass=me.haogao.vining.topology.ViningTweepyTopology  
 </pre>
 
