@@ -28,3 +28,7 @@ http://yarovoy.com/post/14363197336/maven-how-to-install-maven-3-on-ubuntu-11-10
 
 Install pip  
 http://www.saltycrane.com/blog/2010/02/how-install-pip-ubuntu/  
+
+Problems:  
+1. locale.Error: unsupported locale setting  
+sudo locale-gen en_US.UTF-8  
