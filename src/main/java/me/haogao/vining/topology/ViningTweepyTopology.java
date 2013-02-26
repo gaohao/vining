@@ -27,7 +27,7 @@ public class ViningTweepyTopology {
                  .fieldsGrouping("spout", new Fields("tweet_id"));
 
         Config conf = new Config();
-        conf.setDebug(false);
+        conf.setDebug(true);
         
         if(args!=null && args.length > 0) {
             conf.setNumWorkers(3);
