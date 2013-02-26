@@ -7,6 +7,7 @@ import urllib
 import datetime
 import tweepy
 import json
+import time
 
 class ViningSpout(storm.Spout):  
     def initialize(self, conf, context):
@@ -17,13 +18,12 @@ class ViningSpout(storm.Spout):
             for tweet in self.api.search(q ="vine.co/v", rpp = 6, result_type="recent", include_entities=True):
                 vine_url = tweet.entities['urls'][0]['expanded_url']
                 soupe = BeautifulSoup(urllib2.urlopen(vine_url).read())
-                link = soupe.source['src']
-                storm.emit([tweet.id_str, tweet.text, tweet.created_at.isoformat(), link])
-            
+                if soupe.source != None:
+                    link = soupe.source['src']
+                    storm.emit([tweet.id_str, tweet.text, tweet.created_at.isoformat(), link])
+                
             time.sleep(2)
         except StopIteration:
-            pass
-        except:
             pass
 ViningSpout().run()
 
