@@ -31,6 +31,8 @@ class ViningSpout(storm.Spout):
                 pass
         except tweepy.TweepError, err:
             pass
+        except:
+            pass
 ViningSpout().run()
 
 
