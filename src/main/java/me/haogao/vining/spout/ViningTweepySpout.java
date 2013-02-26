@@ -11,7 +11,7 @@ public class ViningTweepySpout extends ShellSpout implements IRichSpout {
 	private static final long serialVersionUID = 7060865252243357618L;
 
 	public ViningTweepySpout() {
-        super("python", "tweepy_vining_spout.py");
+        super("python", "vining_tweepy_spout.py");
     }
 
     @Override
