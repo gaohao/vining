@@ -32,3 +32,6 @@ http://www.saltycrane.com/blog/2010/02/how-install-pip-ubuntu/
 Problems:  
 1. locale.Error: unsupported locale setting  
 sudo locale-gen en_US.UTF-8  
+
+2. For long run  
+use nohup  
