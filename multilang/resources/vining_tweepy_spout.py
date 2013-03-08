@@ -8,6 +8,7 @@ import datetime
 import tweepy
 import json
 import time
+import jsonpickle
 
 class ViningSpout(storm.Spout):  
     def initialize(self, conf, context):
@@ -22,7 +23,8 @@ class ViningSpout(storm.Spout):
                     soupe = BeautifulSoup(urllib2.urlopen(vine_url).read())
                     if soupe.source != None:
                         link = soupe.source['src']
-                        storm.emit([tweet.id_str, tweet.text, tweet.created_at.isoformat(), link])
+                        pickled = jsonpickle.encode(tweet)
+                        storm.emit([tweet.id_str, tweet.text, tweet.created_at.isoformat(), link, json.dumps(json.loads(pickled), indent=4, sort_keys=True)])
             time.sleep(2)
         except StopIteration:
             pass

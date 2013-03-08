@@ -47,6 +47,7 @@ public class ViningCacheBolt extends BaseRichBolt{
 		String text = (String) input.getValue(1);
 		String created_at = (String) input.getValue(2);
 		String link = (String) input.getValue(3);
+		String tweet = (String) input.getValue(4);
 		
 		String ISO_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
 		SimpleDateFormat sdf = new SimpleDateFormat(ISO_FORMAT);
@@ -55,7 +56,7 @@ public class ViningCacheBolt extends BaseRichBolt{
 		try {
 			Date date = sdf.parse(created_at);
 			
-			//logger.info();
+			logger.info(tweet);
 			this.jedis.hset(id, "text", text);
 			this.jedis.hset(id, "created_at", created_at);
 			this.jedis.hset(id, "link", link);
