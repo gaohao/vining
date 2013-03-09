@@ -19,6 +19,13 @@ import backtype.storm.topology.OutputFieldsDeclarer;
 import backtype.storm.topology.base.BaseRichBolt;
 import backtype.storm.tuple.Tuple;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonSyntaxException;
+
+
 public class ViningCacheBolt extends BaseRichBolt{
 
 	private static final long serialVersionUID = 5161826509198496313L;
@@ -56,7 +63,13 @@ public class ViningCacheBolt extends BaseRichBolt{
 		try {
 			Date date = sdf.parse(created_at);
 			
-			logger.info(tweet);
+			JsonElement jsone = new JsonParser().parse(tweet);
+			JsonObject jsonObject = jsone.getAsJsonObject();
+			jsonObject.remove("created_at");
+			jsonObject.addProperty("link", link);
+			jsonObject.addProperty("created_at", created_at);
+			String json = new Gson().toJson(jsonObject); 	
+
 			this.jedis.hset(id, "text", text);
 			this.jedis.hset(id, "created_at", created_at);
 			this.jedis.hset(id, "link", link);
@@ -65,6 +78,8 @@ public class ViningCacheBolt extends BaseRichBolt{
 			this.jedis.zadd(key, date.getTime(), id);
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonSyntaxException e) {
 			e.printStackTrace();
 		}
 	}
