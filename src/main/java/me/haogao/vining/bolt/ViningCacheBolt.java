@@ -51,10 +51,9 @@ public class ViningCacheBolt extends BaseRichBolt{
 	@Override
 	public void execute(Tuple input) {
 		String id = (String) input.getValue(0);
-		String text = (String) input.getValue(1);
-		String created_at = (String) input.getValue(2);
-		String link = (String) input.getValue(3);
-		String tweet = (String) input.getValue(4);
+		String created_at = (String) input.getValue(1);
+		String link = (String) input.getValue(2);
+		String tweet = (String) input.getValue(3);
 		
 		String ISO_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
 		SimpleDateFormat sdf = new SimpleDateFormat(ISO_FORMAT);
@@ -62,17 +61,15 @@ public class ViningCacheBolt extends BaseRichBolt{
 		sdf.setTimeZone(utc);
 		try {
 			Date date = sdf.parse(created_at);
-			
+		
 			JsonElement jsone = new JsonParser().parse(tweet);
 			JsonObject jsonObject = jsone.getAsJsonObject();
 			jsonObject.remove("created_at");
 			jsonObject.addProperty("link", link);
 			jsonObject.addProperty("created_at", created_at);
-			String json = new Gson().toJson(jsonObject); 	
+			String json = new Gson().toJson(jsonObject);		 	
 
-			this.jedis.hset(id, "text", text);
-			this.jedis.hset(id, "created_at", created_at);
-			this.jedis.hset(id, "link", link);
+			this.jedis.set(id, json);
 			
 			String key = "vine:link:realtime";
 			this.jedis.zadd(key, date.getTime(), id);

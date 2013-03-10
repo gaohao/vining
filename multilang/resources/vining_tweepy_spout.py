@@ -24,7 +24,7 @@ class ViningSpout(storm.Spout):
                     if soupe.source != None:
                         link = soupe.source['src']
                         pickled = jsonpickle.encode(tweet)
-                        storm.emit([tweet.id_str, tweet.text, tweet.created_at.isoformat(), link, json.dumps(json.loads(pickled), indent=4, sort_keys=True)])
+                        storm.emit([tweet.id_str, tweet.created_at.isoformat(), link, json.dumps(json.loads(pickled), indent=4, sort_keys=True)])
             time.sleep(2)
         except StopIteration:
             pass

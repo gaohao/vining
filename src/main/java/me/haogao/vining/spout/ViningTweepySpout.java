@@ -16,7 +16,7 @@ public class ViningTweepySpout extends ShellSpout implements IRichSpout {
 
     @Override
     public void declareOutputFields(OutputFieldsDeclarer declarer) {
-    	declarer.declare(new Fields("tweet_id", "tweet_text", "tweet_createdat", "link", "tweet"));
+    	declarer.declare(new Fields("tweet_id", "tweet_createdat", "link", "tweet"));
     }
     
     @Override
