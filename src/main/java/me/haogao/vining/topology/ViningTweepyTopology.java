@@ -27,7 +27,7 @@ public class ViningTweepyTopology {
                  .fieldsGrouping("spout", new Fields("tweet_id"));
 
         Config conf = new Config();
-        conf.setDebug(true);
+        conf.setDebug(false);
         
         if(args!=null && args.length > 0) {
             conf.setNumWorkers(3);
@@ -37,9 +37,9 @@ public class ViningTweepyTopology {
             LocalCluster cluster = new LocalCluster();
             cluster.submitTopology("vining", conf, builder.createTopology());
             
-            Thread.sleep(10000);
-            cluster.killTopology("vining");
-            cluster.shutdown();
+            //Thread.sleep(10000);
+            //cluster.killTopology("vining");
+            //cluster.shutdown();
         }  
 		logger.exit();
     }
