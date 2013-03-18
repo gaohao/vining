@@ -23,6 +23,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonSyntaxException;
 
 
@@ -48,6 +49,7 @@ public class ViningCacheBolt extends BaseRichBolt{
 		logger = LogManager.getLogger(ViningCacheBolt.class.getName());
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void execute(Tuple input) {
 		String id = (String) input.getValue(0);
@@ -67,9 +69,17 @@ public class ViningCacheBolt extends BaseRichBolt{
 			jsonObject.remove("created_at");
 			jsonObject.addProperty("link", link);
 			jsonObject.addProperty("created_at", created_at);
-			String json = new Gson().toJson(jsonObject);		 	
-
-			this.jedis.set(id, json);
+			String json = new Gson().toJson(jsonObject);
+			
+			//Get the hashtag Array
+			JsonArray jarray = (JsonArray)((JsonObject)jsonObject.get("entities")).get("hashtags");	
+			if (jarray.size() == 0)
+				this.jedis.hset("", id, json);
+			else {
+				for(JsonElement jseit: jarray) {
+					this.jedis.hset(jseit.getAsJsonObject().get("text").getAsString(), id, json);
+				}
+			}								
 			
 			String key = "vine:link:realtime";
 			this.jedis.zadd(key, date.getTime(), id);
