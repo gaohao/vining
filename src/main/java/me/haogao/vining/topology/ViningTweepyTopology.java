@@ -23,7 +23,9 @@ public class ViningTweepyTopology {
         
         builder.setSpout("spout", new ViningTweepySpout(), 1);
         
-        builder.setBolt("bolt", new ViningCacheBolt("localhost", 6379), 12)
+        builder.setBolt("normalbolt", new ViningCacheBolt("localhost", 6379), 12)
+                 .fieldsGrouping("spout", new Fields("tweet_id"));
+		builder.setBolt("hashbolt", new ViningHashBolt("localhost", 6379), 12)
                  .fieldsGrouping("spout", new Fields("tweet_id"));
 
         Config conf = new Config();

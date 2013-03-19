@@ -23,10 +23,11 @@ import com.google.gson.Gson;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonSyntaxException;
 
 
-public class ViningCacheBolt extends BaseRichBolt{
+public class ViningHashBolt extends BaseRichBolt{
 
 	private static final long serialVersionUID = 5161826509198496313L;
 	private String host;
@@ -35,7 +36,7 @@ public class ViningCacheBolt extends BaseRichBolt{
 	private Jedis jedis= null;
 	private static Logger logger;
 	
-	public ViningCacheBolt(String host, int port) {
+	public ViningHashBolt(String host, int port) {
 		this.host = host;
 		this.port = port;
 	}
@@ -45,9 +46,10 @@ public class ViningCacheBolt extends BaseRichBolt{
 			OutputCollector collector) {
 		this.jedisPool = new JedisPool(this.host, this.port);
 		this.jedis = jedisPool.getResource();
-		logger = LogManager.getLogger(ViningCacheBolt.class.getName());
+		logger = LogManager.getLogger(ViningHashBolt.class.getName());
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void execute(Tuple input) {
 		String id = (String) input.getValue(0);
@@ -59,8 +61,8 @@ public class ViningCacheBolt extends BaseRichBolt{
 		SimpleDateFormat sdf = new SimpleDateFormat(ISO_FORMAT);
 		TimeZone utc = TimeZone.getTimeZone("UTC");
 		sdf.setTimeZone(utc);
-		this.jedis.select(0);
 
+		this.jedis.select(1);
 		try {
 			Date date = sdf.parse(created_at);
 		
@@ -71,7 +73,15 @@ public class ViningCacheBolt extends BaseRichBolt{
 			jsonObject.addProperty("created_at", created_at);
 			String json = new Gson().toJson(jsonObject);
 			
-			this.jedis.set(id,json);						
+			//Get the hashtag Array
+			JsonArray jarray = (JsonArray)((JsonObject)jsonObject.get("entities")).get("hashtags");	
+			if (jarray.size() == 0) {
+				this.jedis.hset("", id, json);
+			}else {
+				for(JsonElement jseit: jarray) {
+					this.jedis.hset(jseit.getAsJsonObject().get("text").getAsString(), id, json);
+				}
+			}								
 			
 			String key = "vine:link:realtime";
 			this.jedis.zadd(key, date.getTime(), id);
