@@ -1,6 +1,10 @@
 vining
 =======
 1. Install maven3 first  
+  On OS X:
+  <pre>
+  brew install maven
+  </pre>
 
 2. Install virtualenv  
 <pre>pip install virtualenv</pre>  
