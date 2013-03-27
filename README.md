@@ -15,7 +15,9 @@ source venv/bin/activate
 4. Install all python dependency  
 <pre>pip install -r requirements.txt</pre>
 
-5. Run the topology  
+5. <a ref="http://redis.io/download">Install Reids</a> and execute ./redis-server  
+
+6. Run the topology  
 <pre>
 mvn -f pom.xml compile exec:java -Dexec.classpathScope=compile -Dexec.mainClass=me.haogao.vining.topology.ViningShellTopology    
 mvn -f pom.xml compile exec:java -Dexec.classpathScope=compile -Dexec.mainClass=me.haogao.vining.topology.ViningTweepyTopology  
