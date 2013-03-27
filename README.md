@@ -40,3 +40,20 @@ Problems:
   Sudo locale-gen en_US.UTF-8  
 2. For long run  
   Use nohup  
+
+
+
+How to configure on Fedora:
+
+1. Install maven 3
+<pre>
+  sudo yum install maven
+</pre>
+
+2. Install pip
+<pre>
+  sudo yum install python-pip
+</pre>
+
+3. Install virtualenv  
+<pre>sudo python-pip install virtualenv</pre>  
