@@ -19,7 +19,7 @@ source venv/bin/activate
 4. Install all python dependency  
 <pre>pip install -r requirements.txt</pre>
 
-5. <a ref="http://redis.io/download">Install Reids</a> and execute ./redis-server  
+5. <a href="http://redis.io/download">Install Redis</a> and execute ./redis-server  
 
 6. Run the topology  
 <pre>
