@@ -1,0 +1,297 @@
+commit 69891080f8a58e658d7f82bbd0e3010214d36770
+Author: liuzhuolin <zhuolinliu8@gmail.com>
+Date:   Sun Mar 17 22:45:33 2013 -0400
+
+    store as hash in redis
+
+commit 747ed26f214f2e9ba024ad0106ca1d50d08bded0
+Author: liuzhuolin <zhuolinliu8@gmail.com>
+Date:   Sat Mar 9 20:29:56 2013 -0500
+
+    json into redis
+
+commit df6af07f311bb55e34ed353b752ca81150582e17
+Author: liuzhuolin <zhuolinliu8@gmail.com>
+Date:   Sat Mar 9 18:37:25 2013 -0500
+
+    add json parser
+
+commit 05ffb48d813e4d225a7297513a52d716713e6f96
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Sat Mar 9 16:29:29 2013 -0500
+
+    add google-gson
+
+commit d4b43e4e09f7d36f94a79963d7f3c66d95d597a7
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Sat Mar 9 16:15:39 2013 -0500
+
+    update requirement
+
+commit 7b6a8fa2e312c7d2da39e2eddf2587fd4506ec13
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Sat Mar 9 16:09:22 2013 -0500
+
+    update requirement
+
+commit 00172fc625b86bebe689be9175ae13d9f1719bd2
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Fri Mar 8 00:20:55 2013 -0500
+
+    add jsonpickle
+
+commit 7156ad3e6ab7a4c177b9014cce1fef82e4be4ce1
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Thu Mar 7 23:48:23 2013 -0500
+
+    Create README.md
+
+commit 112de22849b74d952ce04e30663a8e4172a83b5c
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Thu Mar 7 02:14:59 2013 -0500
+
+    Update README.md
+
+commit 1dd501e9f7b555d1312792759055dc605f8d7b05
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Tue Feb 26 17:42:26 2013 -0500
+
+    bug fix
+
+commit 8a849246d8aa003add9e21a5b8f90c25ba2bc8fa
+Merge: 1652499 03c0bf3
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Tue Feb 26 11:52:16 2013 -0500
+
+    Merge branch 'master' of github.com:gaohao/vining
+
+commit 1652499596c9fa8cb4c1e2363247efbee3da5604
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Tue Feb 26 11:52:03 2013 -0500
+
+    bug fix
+
+commit 03c0bf36a0d3cf0e0b98bb885eaab410eecdb0c2
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Tue Feb 26 06:49:28 2013 -0500
+
+    Update README.md
+
+commit 6964ce565eaf856f42b4f01ba6ac73b426f2bfdb
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Tue Feb 26 05:14:30 2013 -0500
+
+    turn off debug
+
+commit 1cec4444078aa5344c312074a5ecf86595099f55
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Tue Feb 26 05:10:28 2013 -0500
+
+    update readme
+
+commit 59f0075eca8170126a85e075686381aa627a331b
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Tue Feb 26 05:06:40 2013 -0500
+
+    fix bug for time and None
+
+commit 36bef3677993f8460253981dbdf85435a91a1149
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Tue Feb 26 04:53:01 2013 -0500
+
+    fix bug shell topology
+
+commit d195520f27a66af52110ed37bf825f2d12e15f85
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Tue Feb 26 04:50:40 2013 -0500
+
+    fix bug shell topology
+
+commit e1f1c3826fdebb153ed68eb67941d7a66f3f492e
+Merge: 9a09a85 706fde7
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Tue Feb 26 04:31:55 2013 -0500
+
+    Merge branch 'master' of github.com:gaohao/vining
+
+commit 9a09a85a25d5042db00fe02a2225dc052d58ef65
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Tue Feb 26 04:31:13 2013 -0500
+
+    debug
+
+commit 706fde758683f3d198287b3714d7dd889cc9e966
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Mon Feb 25 18:15:10 2013 -0500
+
+    Update README.md
+
+commit ff6a1e4dcfee98e935fc022b059a6f2adf95c0cb
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Mon Feb 25 17:36:00 2013 -0500
+
+    Update README.md
+
+commit cedc58ca757a3fd18968d807474315b6f6d3ce34
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Sat Feb 23 01:46:41 2013 -0500
+
+    add redis config
+
+commit a5cf068ad240b44391f1287eb9b8d4254e1f104b
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Wed Feb 20 16:38:59 2013 -0500
+
+    iniital redis
+
+commit 1fff8615fa1d5f4a7d47450b4699c25655db52dd
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Wed Feb 20 10:48:13 2013 -0500
+
+    turn off debug
+
+commit e23752fefd52908305ec444b6f1911d08ccc5323
+Merge: da79d6d d78db94
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Wed Feb 20 10:44:00 2013 -0500
+
+    Merge branch 'master' of github.com:gaohao/vining
+
+commit da79d6d77076a57b9122654555ae3f5b65c658a0
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Wed Feb 20 10:43:46 2013 -0500
+
+    add spouts
+
+commit d78db947d6febdcb8bd4c3c82263fcbe5327b233
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Wed Feb 20 10:36:13 2013 -0500
+
+    Update README.md
+
+commit a53ccbba5dec26711a0a14a1d2ad4b539708f279
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Wed Feb 20 10:35:42 2013 -0500
+
+    Update README.md
+
+commit 1a573687180d53cd3b32150415d34e1f63732560
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Wed Feb 20 10:31:42 2013 -0500
+
+    add tweepy
+
+commit ba2b142919533a72fcc54a7268b624af8f0913f0
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Wed Feb 20 10:31:00 2013 -0500
+
+    add tweepy
+
+commit 31f6ae0dc0f3935dd4d8d6bc60db7d2ae9239b92
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Tue Feb 19 23:50:15 2013 -0500
+
+    update structure
+
+commit 67c1087f4fc12982d6161d8194610768b5826e3b
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Tue Feb 19 23:48:55 2013 -0500
+
+    update structure
+
+commit 6ba678d2f7b49bbbdac59a682345f82000a075cd
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Fri Feb 15 20:29:42 2013 -0500
+
+    set debug false
+
+commit 1ca36e9c6f02e4b9de3da1ab038188b50aaa4f5d
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Fri Feb 15 20:24:57 2013 -0500
+
+    set debug false
+
+commit 117f09cfd404589569202d578b78fb6ca91a2cbe
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Fri Feb 15 20:14:04 2013 -0500
+
+    add sleep() in python
+
+commit a805c2916a84f383d724b361c11d20b84d8e7f69
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Fri Feb 15 18:07:42 2013 -0500
+
+    catch all exception in python
+
+commit 8ca9224b17c8059bd535307905ac91a54098884d
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Fri Feb 15 17:55:24 2013 -0500
+
+    fix typo
+
+commit 724341d6eba391b2d3e5a2019854baa833e61125
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Fri Feb 15 17:47:20 2013 -0500
+
+    test
+
+commit 28f56a20611b4801132c6f785d7e5bca2711a2e6
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Fri Feb 15 17:32:44 2013 -0500
+
+    clear target
+
+commit 2a2d1211d42d2690b056a58a6b525d38fb3e9dd7
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Fri Feb 15 17:31:54 2013 -0500
+
+    clear target
+
+commit 7fb9bc5b0b8c08758bf7691c0b4b45a75032f20c
+Merge: 708e027 f75f9f3
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Fri Feb 15 17:05:32 2013 -0500
+
+    Merge branch 'master' of github.com:gaohao/vining
+
+commit 708e027f20f2086f7f5ae198218e890cee8ba8f7
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Fri Feb 15 17:05:12 2013 -0500
+
+    add requirements.txt
+
+commit f75f9f32237478fb5c5c5634d2666fef8aa00c5c
+Author: Hao Gao <haog@andrew.cmu.edu>
+Date:   Fri Feb 15 16:59:49 2013 -0500
+
+    Update README.md
+
+commit 1cfe4ac1e1ae8d6250caaf7158e469334509abcc
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Fri Feb 15 16:30:47 2013 -0500
+
+    add redis support
+
+commit 7d795ebc168c7fbffadd4999d4b23624f88e83e9
+Author: Hao Gao <haog@andrew.cmu.edu>
+Date:   Wed Feb 13 20:42:12 2013 -0500
+
+    Update README.md
+
+commit 21919019f4b7bea9f763673a07bfa780c4675ea8
+Author: Hao Gao <haog@andrew.cmu.edu>
+Date:   Mon Feb 11 05:59:07 2013 -0500
+
+    Update README.md
+
+commit e8f702a724282a36fa8564fd61abcaad780e9c55
+Author: Hao Gao <hao.x.gao@gmail.com>
+Date:   Mon Feb 11 05:53:46 2013 -0500
+
+    vining
+
+commit 70dda8eba168cc20d56dee1021a85790c93d3331
+Author: Hao Gao <haog@andrew.cmu.edu>
+Date:   Mon Feb 11 02:48:27 2013 -0800
+
+    Initial commit
