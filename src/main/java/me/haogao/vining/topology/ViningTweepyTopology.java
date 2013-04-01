@@ -21,18 +21,18 @@ public class ViningTweepyTopology {
     	
         TopologyBuilder builder = new TopologyBuilder();
         
-        builder.setSpout("spout", new ViningTweepySpout(""), 1);
-        builder.setSpout("spout2", new ViningTweepySpout("cat"), 1);
-        builder.setSpout("spout3", new ViningTweepySpout("love"), 1);
-        builder.setSpout("spout4", new ViningTweepySpout("dog"), 1);
+        //builder.setSpout("spout", new ViningTweepySpout(" "), 1);
+        builder.setSpout("spout2", new ViningTweepySpout(" cat"), 1);
+        builder.setSpout("spout3", new ViningTweepySpout(" love"), 1);
+        builder.setSpout("spout4", new ViningTweepySpout(" dog"), 1);
         
-        builder.setBolt("bolt", new ViningCacheBolt("localhost", 6379), 12)
-                 .fieldsGrouping("spout", new Fields("tweet_id"));
-         builder.setBolt("bolt", new ViningCacheBolt("localhost", 6379), 12)
+        //builder.setBolt("bolt", new ViningCacheBolt("localhost", 6379), 12)
+         //        .fieldsGrouping("spout", new Fields("tweet_id"));
+         builder.setBolt("bolt2", new ViningCacheBolt("localhost", 6379), 12)
                  .fieldsGrouping("spout2", new Fields("tweet_id"));
-         builder.setBolt("bolt", new ViningCacheBolt("localhost", 6379), 12)
+         builder.setBolt("bolt3", new ViningCacheBolt("localhost", 6379), 12)
                  .fieldsGrouping("spout3", new Fields("tweet_id"));
-         builder.setBolt("bolt", new ViningCacheBolt("localhost", 6379), 12)
+         builder.setBolt("bolt4", new ViningCacheBolt("localhost", 6379), 12)
                  .fieldsGrouping("spout4", new Fields("tweet_id"));
         Config conf = new Config();
         conf.setDebug(false);
