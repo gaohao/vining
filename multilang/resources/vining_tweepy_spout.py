@@ -9,14 +9,22 @@ import tweepy
 import json
 import time
 import jsonpickle
+import os
+
+CONSUMER_KEY = None
+CONSUMER_SECRET = None
+ACCESS_KEY = None
+ACCESS_SECRET = None
 
 class ViningSpout(storm.Spout):  
     def initialize(self, conf, context):
-        self.api = tweepy.API()
+        auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+        auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+        self.api = tweepy.API(auth)
     
     def nextTuple(self):
         try:       
-            for tweet in self.api.search(q ="vine.co/v", rpp = 6, result_type="recent", include_entities=True):
+            for tweet in self.api.search(q = "vine.co/v", rpp = 6, result_type="recent", include_entities=True):
                 if tweet.entities != None and 'urls' in tweet.entities and \
                     len(tweet.entities['urls']) > 0 and 'expanded_url' in tweet.entities['urls'][0]:
                     vine_url = tweet.entities['urls'][0]['expanded_url']
